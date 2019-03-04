@@ -2,16 +2,16 @@
 
 
 ## 1. Listar información:
-Listar el nombre de todos los animes.
+Listar el nombre de todos los juegos de todas las consolas.
 
 ## 2. Contar información:
-Contar los animes que tienen el defaulttvdbseason pedido por teclado.
+Pedir por teclado el nombre de una consola y contar los juegos que contiene.
 
 ## 3. Buscar o filtrar información:
-Pedir el nombre del anime por teclado y mostrar el _anidbid.
+Pedir por teclado el nombre de una consola y mostrarte los generos de todos sus juegos.
 
 ## 4. Buscar información relacionada:
-Mostrar el anime que tenga el _tvdbseason pedido por teclado.
+Pedir por teclado el año de salida y mostrate los nombres de los juegos con dicho año de salida.
 
 ## 5. Ejercicio libre:
-Pedir por teclado el nombre de un anime y que salga el enlace con el episodio 1 de la serie(Usaremos animeflv.net como referencia).
+Juego:Pediremos por teclado una consola y la persona tendrá 10 intentos para acertar cuantos juegos tiene, cada intento dira si es mayor a su numero o menor.
