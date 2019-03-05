@@ -4,7 +4,7 @@ def listar_juegos(doc):
 	for comp in doc["compañias"]["compañia"]:
 		if comp["name"]==compañia:
 			print("Compañia detectada.")
-			input("Presione enter para continuar.")
+			input("Presione Enter para continuar.")
 			for consolas in comp["consola"]:
 				if type(consolas["games"]["game"])==list:
 					for juegos in consolas["games"]["game"]:
@@ -49,7 +49,14 @@ def generos_consola(doc):
 
 def juego_compañia(doc):
 	juego=str(input("Dime el nombre del juego. "))
-	
+	for comp in doc["compañias"]["compañia"]:
+		for consolas in comp["consola"]:
+			for juegos in consolas["games"]["game"]:
+				if juegos["_name"]==juego:
+					print("Juego detectado")
+					input("Presione Enter para continuar.")
+					print("Su compañia es",comp["name"])
+
 
 ########################
 import json
@@ -80,7 +87,7 @@ while opcion!=0:
         #Ejemplos Nintendo 64,Nintendo Game Boy Advance,Sega Classics,Sega Genesis,Sony PlayStation,Sony PlayStation 2
     elif opcion==4:
         juego_compañia(doc)
-        #Ejemplo Spinning Axe,Courage,Quickdraw
+        #Ejemplos 007 - GoldenEye (USA),V.I.P. (USA),WWF No Mercy (USA) (Rev A),Majesco's Rec Room Challenge (USA),Duke Nukem - Time to Kill (USA),Caesars Palace (USA),Burning Force (USA)
     elif opcion==5:
         print("ejercicio5")
     elif opcion==0:
