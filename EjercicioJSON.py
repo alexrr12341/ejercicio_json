@@ -55,9 +55,18 @@ def juego_compañia(doc):
 				if juegos["_name"]==juego:
 					print("Juego detectado")
 					input("Presione Enter para continuar.")
-					print("Su compañia es",comp["name"])
+					return comp["name"]
 
-
+def caracteristicas_juego(doc):
+	juego=str(input("Dime el nombre del juego. "))
+	for comp in doc["compañias"]["compañia"]:
+		for consolas in comp["consola"]:
+			for juegos in consolas["games"]["game"]:
+				if juegos["_name"]==juego:
+					print("Juego detectado")
+					input("Presione Enter para continuar.")
+					lista=[consolas["listname"],comp["name"],juegos["description"],juegos["cloneof"],juegos["crc"],juegos["manufacturer"],juegos["year"],juegos["genre"],juegos["rating"],juegos["enabled"]]
+	return lista
 ########################
 import json
 import codecs
@@ -86,9 +95,21 @@ while opcion!=0:
     		contador+=1
         #Ejemplos Nintendo 64,Nintendo Game Boy Advance,Sega Classics,Sega Genesis,Sony PlayStation,Sony PlayStation 2
     elif opcion==4:
-        juego_compañia(doc)
+        print("Su compañia es",juego_compañia(doc))
         #Ejemplos 007 - GoldenEye (USA),V.I.P. (USA),WWF No Mercy (USA) (Rev A),Majesco's Rec Room Challenge (USA),Duke Nukem - Time to Kill (USA),Caesars Palace (USA),Burning Force (USA)
     elif opcion==5:
-        print("ejercicio5")
+    	#Ejemplos 007 - GoldenEye (USA),V.I.P. (USA),WWF No Mercy (USA) (Rev A),Majesco's Rec Room Challenge (USA),Duke Nukem - Time to Kill (USA),Caesars Palace (USA),Burning Force (USA)
+    	lista=caracteristicas_juego(doc)
+    	print("Su compañia es",lista[1])
+    	print("Su consola es",lista[0])
+    	print("Caracteristicas:")
+    	print("Descripcion-->",lista[2])
+    	print("Copia de -->",lista[3])
+    	print("crc -->",lista[4])
+    	print("Fabricante -->",lista[5])
+    	print("Año de Salida -->",lista[6])
+    	print("Genero -->",lista[7])
+    	print("PEGI -->",lista[8])
+    	print("Lanzado -->",lista[9])
     elif opcion==0:
         print("Fin del programa.")
