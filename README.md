@@ -11,7 +11,7 @@ Pedir por teclado el nombre de una consola y contar los juegos que contiene.
 Pedir por teclado el nombre de una consola y mostrarte los generos de todos sus juegos.
 
 ## 4. Buscar información relacionada:
-Pedir por teclado el año de salida y mostrate los nombres de los juegos con dicho año de salida.
+Pedir por teclado el nombre de un juego y mostrate de que compañia proviene dicho juego.
 
 ## 5. Ejercicio libre:
-Juego:Pediremos por teclado una consola y la persona tendrá 10 intentos para acertar cuantos juegos tiene, cada intento dira si es mayor a su numero o menor.
+Pedir por teclado el nombre de un juego y mostrarte de que consola proviene, junto a sus caracteristicas y junto a su compañia
