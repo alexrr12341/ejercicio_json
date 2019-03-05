@@ -2,7 +2,7 @@
 
 
 ## 1. Listar información:
-Listar el nombre de todos los juegos de todas las consolas.
+Pedir por teclado el nombre de una compañia y listar el nombre de todos los juegos de todas las consolas.
 
 ## 2. Contar información:
 Pedir por teclado el nombre de una consola y contar los juegos que contiene.
