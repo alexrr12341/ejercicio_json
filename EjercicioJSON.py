@@ -28,10 +28,7 @@ def contar_juegos(doc):
 					listaG.append(consolas["games"]["game"]["_name"])
 	for juegos in listaG:
 		contador+=1
-	if contador>0:
-		return contador
-	else:
-		print("Esa consola no esta en nuestra base de datos.")
+	return contador
 def generos_consola(doc):
 	consola=str(input("Dime el nombre de la consola. "))
 	listaG=[]
@@ -90,18 +87,14 @@ while opcion!=0:
        		print(juegos)
     elif opcion==2:
     #Ejemplos Nintendo 64,Nintendo Game Boy Advance,Sega Classics,Sega Genesis,Sony PlayStation,Sony PlayStation 2
-    	if not contar_juegos(doc)==None:
-    		print("Hay",contar_juegos(doc),"juegos en esta consola.")
+    	print("Hay",contar_juegos(doc),"juegos en esta consola.")
     elif opcion==3:
     	contador=1
     	for generos in generos_consola(doc):
     		print(generos[1]," Genero-->",generos[0])
         #Ejemplos Nintendo 64,Nintendo Game Boy Advance,Sega Classics,Sega Genesis,Sony PlayStation,Sony PlayStation 2
     elif opcion==4:
-    	if juego_compañia(doc)==None:
-    		print("Ese juego no esta en nuestra base de datos.")
-    	else:
-        	print("Su compañia es",juego_compañia(doc))
+        print("Su compañia es",juego_compañia(doc))
         #Ejemplos 007 - GoldenEye (USA),V.I.P. (USA),WWF No Mercy (USA) (Rev A),Majesco's Rec Room Challenge (USA),Duke Nukem - Time to Kill (USA),Caesars Palace (USA),Burning Force (USA)
     elif opcion==5:
     	#Ejemplos 007 - GoldenEye (USA),V.I.P. (USA),WWF No Mercy (USA) (Rev A),Majesco's Rec Room Challenge (USA),Duke Nukem - Time to Kill (USA),Caesars Palace (USA),Burning Force (USA)
