@@ -90,7 +90,8 @@ while opcion!=0:
        		print(juegos)
     elif opcion==2:
     #Ejemplos Nintendo 64,Nintendo Game Boy Advance,Sega Classics,Sega Genesis,Sony PlayStation,Sony PlayStation 2
-    	print("Hay",contar_juegos(doc),"juegos en esta consola.")
+    	if not contar_juegos(doc)==None:
+    		print("Hay",contar_juegos(doc),"juegos en esta consola.")
     elif opcion==3:
     	contador=1
     	for generos in generos_consola(doc):
