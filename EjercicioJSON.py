@@ -97,7 +97,10 @@ while opcion!=0:
     		print(generos[1]," Genero-->",generos[0])
         #Ejemplos Nintendo 64,Nintendo Game Boy Advance,Sega Classics,Sega Genesis,Sony PlayStation,Sony PlayStation 2
     elif opcion==4:
-        print("Su compañia es",juego_compañia(doc))
+    	if juego_compañia(doc)==None:
+    		print("Ese juego no esta en nuestra base de datos.")
+    	else:
+        	print("Su compañia es",juego_compañia(doc))
         #Ejemplos 007 - GoldenEye (USA),V.I.P. (USA),WWF No Mercy (USA) (Rev A),Majesco's Rec Room Challenge (USA),Duke Nukem - Time to Kill (USA),Caesars Palace (USA),Burning Force (USA)
     elif opcion==5:
     	#Ejemplos 007 - GoldenEye (USA),V.I.P. (USA),WWF No Mercy (USA) (Rev A),Majesco's Rec Room Challenge (USA),Duke Nukem - Time to Kill (USA),Caesars Palace (USA),Burning Force (USA)
