@@ -35,6 +35,7 @@ def contar_juegos(doc):
 def generos_consola(doc):
 	consola=str(input("Dime el nombre de la consola. "))
 	listaG=[]
+	listaJ=[]
 	for comp in doc["compañias"]["compañia"]:
 		for consolas in comp["consola"]:
 			if consolas["listname"]==consola:
@@ -43,9 +44,11 @@ def generos_consola(doc):
 				if type(consolas["games"]["game"])==list:
 					for juegos in consolas["games"]["game"]:
 						listaG.append(juegos["genre"])
+						listaJ.append(juegos["_name"])
 				else:
 					listaG.append(consolas["games"]["game"]["genre"])
-	return listaG
+					listaJ.append(consolas["games"]["game"]["_name"])
+	return zip(listaG,listaJ)
 
 def juego_compañia(doc):
 	juego=str(input("Dime el nombre del juego. "))
@@ -91,8 +94,7 @@ while opcion!=0:
     elif opcion==3:
     	contador=1
     	for generos in generos_consola(doc):
-    		print("Juego",contador,"--->",generos)
-    		contador+=1
+    		print(generos[1]," Genero-->",generos[0])
         #Ejemplos Nintendo 64,Nintendo Game Boy Advance,Sega Classics,Sega Genesis,Sony PlayStation,Sony PlayStation 2
     elif opcion==4:
         print("Su compañia es",juego_compañia(doc))
