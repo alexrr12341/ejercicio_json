@@ -14,15 +14,16 @@ def listar_juegos(doc,compania):
 def contar_juegos(doc,consola):
 	listaG=[]
 	contador=0
-	for comp in doc["compañias"]["compañia"]["consola"]:
-		if comp["listname"]==consola.capitalize():
-			print("Consola detectada")
-			input("Presione Enter para continuar.")
-			if type(comp["games"]["game"])==list:
-				for juegos in consolas["games"]["game"]:
-					listaG.append(juegos["_name"]) 
-			else:
-				listaG.append(comp["games"]["game"]["_name"])
+	for comp in doc["compañias"]["compañia"]:
+		for consolas in comp["consola"]:
+			if consolas["listname"]==consola:
+				print("Consola detectada")
+				input("Presione Enter para continuar.")
+				if type(consolas["games"]["game"])==list:
+					for juegos in consolas["games"]["game"]:
+						listaG.append(juegos["_name"])
+				else:
+					listaG.append(consolas["games"]["game"]["_name"])
 	for juegos in listaG:
 		contador+=1
 	return contador
@@ -83,10 +84,7 @@ while opcion!=0:
     elif opcion==2:
     	consola=str(input("Dime el nombre de la consola. "))
     #Ejemplos Nintendo 64,Nintendo Game Boy Advance,Sega Classics,Sega Genesis,Sony PlayStation,Sony PlayStation 2
-    	if contar_juegos(doc,consola)==0:
-    		print("Esa consola no tiene juegos.")
-    	else:
-    		print("Hay",contar_juegos(doc,consola),"juegos en esta consola.")
+    	print("Hay",contar_juegos(doc,consola),"juegos en esta consola.")
     elif opcion==3:
     	consola=str(input("Dime el nombre de la consola. "))
     	for generos in generos_consola(doc,consola):
