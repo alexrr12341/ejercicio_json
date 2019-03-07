@@ -73,48 +73,53 @@ opciones='''1.Listar nombre de juego
 5.Caracteristicas Juegos
 0.Salir'''
 opcion=int
-while opcion!=0:
+while True:
     print(opciones)
-    opcion=int(input("Dime la opción. "))
-    if opcion==1:
-    	compania=str(input("Dime una compañia. "))
-    	#Ejemplos Sony,Nintendo,Sega
-    	for juegos in listar_juegos(doc,compania):
-    		print(juegos)
-    elif opcion==2:
-    	consola=str(input("Dime el nombre de la consola. "))
-    #Ejemplos Nintendo 64,Nintendo Game Boy Advance,Sega Classics,Sega Genesis,Sony PlayStation,Sony PlayStation 2
-    	print("Hay",contar_juegos(doc,consola),"juegos en esta consola.")
-    elif opcion==3:
-    	consola=str(input("Dime el nombre de la consola. "))
-    	for generos in generos_consola(doc,consola):
-    		print(generos[1]," Genero-->",generos[0])
-        #Ejemplos Nintendo 64,Nintendo Game Boy Advance,Sega Classics,Sega Genesis,Sony PlayStation,Sony PlayStation 2
-    elif opcion==4:
-    	juego=str(input("Dime el nombre del juego. "))
-    	if juego_compañia(doc,juego)==None:
-    		print("Ese juego no tiene compañia.")
-    	else:
-    		print("Su compañia es",juego_compañia(doc,juego))
-        #Ejemplos 007 - GoldenEye (USA),V.I.P. (USA),WWF No Mercy (USA) (Rev A),Majesco's Rec Room Challenge (USA),Duke Nukem - Time to Kill (USA),Caesars Palace (USA),Burning Force (USA)
-    elif opcion==5:
-    	#Ejemplos ,V.I.P. (USA),WWF No Mercy (USA) (Rev A),Majesco's Rec Room Challenge (USA),Duke Nukem - Time to Kill (USA),Caesars Palace (USA),Burning Force (USA)
-    	juego=str(input("Dime el nombre del juego. "))
-    	try:
-    		lista=caracteristicas_juego(doc,juego)
-    	except:
-    		print("Ese juego no tiene caracteristicas.")
-    	else:
-    		print("Su compañia es",lista[1])
-    		print("Su consola es",lista[0])
-    		print("Caracteristicas:")
-    		print("Descripcion-->",lista[2])
-    		print("Copia de -->",lista[3])
-    		print("crc -->",lista[4])
-    		print("Fabricante -->",lista[5])
-    		print("Año de Salida -->",lista[6])
-    		print("Genero -->",lista[7])
-    		print("PEGI -->",lista[8])
-    		print("Lanzado -->",lista[9])
-    elif opcion==0:
-        print("Fin del programa.")
+    try:
+    	opcion=int(input("Dime la opción. "))
+    except:
+    	print("Eso no es una opcion")
+    else:
+	    if opcion==1:
+	    	compania=str(input("Dime una compañia. "))
+	    	#Ejemplos Sony,Nintendo,Sega
+	    	for juegos in listar_juegos(doc,compania):
+	    		print(juegos)
+	    elif opcion==2:
+	    	consola=str(input("Dime el nombre de la consola. "))
+	    #Ejemplos Nintendo 64,Nintendo Game Boy Advance,Sega Classics,Sega Genesis,Sony PlayStation,Sony PlayStation 2
+	    	print("Hay",contar_juegos(doc,consola),"juegos en esta consola.")
+	    elif opcion==3:
+	    	consola=str(input("Dime el nombre de la consola. "))
+	    	for generos in generos_consola(doc,consola):
+	    		print(generos[1]," Genero-->",generos[0])
+	        #Ejemplos Nintendo 64,Nintendo Game Boy Advance,Sega Classics,Sega Genesis,Sony PlayStation,Sony PlayStation 2
+	    elif opcion==4:
+	    	juego=str(input("Dime el nombre del juego. "))
+	    	if juego_compañia(doc,juego)==None:
+	    		print("Ese juego no tiene compañia.")
+	    	else:
+	    		print("Su compañia es",juego_compañia(doc,juego))
+	        #Ejemplos 007 - GoldenEye (USA),V.I.P. (USA),WWF No Mercy (USA) (Rev A),Majesco's Rec Room Challenge (USA),Duke Nukem - Time to Kill (USA),Caesars Palace (USA),Burning Force (USA)
+	    elif opcion==5:
+	    	#Ejemplos ,V.I.P. (USA),WWF No Mercy (USA) (Rev A),Majesco's Rec Room Challenge (USA),Duke Nukem - Time to Kill (USA),Caesars Palace (USA),Burning Force (USA)
+	    	juego=str(input("Dime el nombre del juego. "))
+	    	try:
+	    		lista=caracteristicas_juego(doc,juego)
+	    	except:
+	    		print("Ese juego no tiene caracteristicas.")
+	    	else:
+	    		print("Su compañia es",lista[1])
+	    		print("Su consola es",lista[0])
+	    		print("Caracteristicas:")
+	    		print("Descripcion-->",lista[2])
+	    		print("Copia de -->",lista[3])
+	    		print("crc -->",lista[4])
+	    		print("Fabricante -->",lista[5])
+	    		print("Año de Salida -->",lista[6])
+	    		print("Genero -->",lista[7])
+	    		print("PEGI -->",lista[8])
+	    		print("Lanzado -->",lista[9])
+	    elif opcion==0:
+	        print("Fin del programa.")
+	        break
