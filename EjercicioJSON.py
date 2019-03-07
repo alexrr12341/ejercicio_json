@@ -1,7 +1,7 @@
 def listar_juegos(doc,compania):
 	listaG=[]
 	for comp in doc["compañias"]["compañia"]:
-		if comp["name"]==compania:
+		if comp["name"]==compania.capitalize():
 			print("Compañia detectada.")
 			input("Presione Enter para continuar.")
 			for consolas in comp["consola"]:
@@ -14,16 +14,15 @@ def listar_juegos(doc,compania):
 def contar_juegos(doc,consola):
 	listaG=[]
 	contador=0
-	for comp in doc["compañias"]["compañia"]:
-		for consolas in comp["consola"]:
-			if consolas["listname"]==consola:
-				print("Consola detectada")
-				input("Presione Enter para continuar.")
-				if type(consolas["games"]["game"])==list:
-					for juegos in consolas["games"]["game"]:
-						listaG.append(juegos["_name"]) 
-				else:
-					listaG.append(consolas["games"]["game"]["_name"])
+	for comp in doc["compañias"]["compañia"]["consola"]:
+		if comp["listname"]==consola.capitalize():
+			print("Consola detectada")
+			input("Presione Enter para continuar.")
+			if type(comp["games"]["game"])==list:
+				for juegos in consolas["games"]["game"]:
+					listaG.append(juegos["_name"]) 
+			else:
+				listaG.append(comp["games"]["game"]["_name"])
 	for juegos in listaG:
 		contador+=1
 	return contador
@@ -32,7 +31,7 @@ def generos_consola(doc,consola):
 	listaJ=[]
 	for comp in doc["compañias"]["compañia"]:
 		for consolas in comp["consola"]:
-			if consolas["listname"]==consola:
+			if consolas["listname"]==consola.capitalize():
 				print("Consola detectada")
 				input("Presione Enter para continuar.")
 				if type(consolas["games"]["game"])==list:
